@@ -8,8 +8,17 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Create a non-root user to run the app
+RUN adduser --disabled-password --gecos '' appuser
+
 # Copy the entire backend folder into the container
 COPY . .
+
+# Change ownership of the application files
+RUN chown -R appuser:appuser /app
+
+# Switch to the non-root user
+USER appuser
 
 # Expose the Flask port
 EXPOSE 5000

@@ -1,2 +1,2 @@
 FROM slicer/slicer-notebook:latest
-RUN pip install numpy pydicom flask
+RUN pip install numpy pydicom flask flask-cors

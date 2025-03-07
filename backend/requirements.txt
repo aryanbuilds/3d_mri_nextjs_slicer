@@ -1,3 +1,4 @@
-flask 
-numpy 
+flask
+flask-cors
+numpy
 pydicom
